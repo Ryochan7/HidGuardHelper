@@ -24,14 +24,22 @@ namespace HidGuardHelper
             
             if (foundId)
             {
-                Class1.HidGuardWhitelist();
+                string[] wlEntries = Class1.HidGuardWhitelist();
+                foreach (string entry in wlEntries)
+                {
+                    Class1.DeleteSubKey(entry);
+                }
+
                 ProcessWatch watcher = null;
                 Thread temp = new Thread(() =>
                 {
                     watcher = new ProcessWatch(processId);
                     if (watcher.ProcessExists)
+                    {
+                        Class1.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\HidGuardian\Parameters\Whitelist\");
                         Class1.CreateSubKey(@"SYSTEM\CurrentControlSet\Services\HidGuardian\Parameters\Whitelist\"
-+ processId);
++ processId, Class1.REGISTRY_OPTION_VOLATILE);
+                    }
                 });
                 temp.Priority = ThreadPriority.Lowest;
                 temp.Start();

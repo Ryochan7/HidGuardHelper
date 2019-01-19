@@ -7,8 +7,11 @@ namespace UtilLibrary {
 	{
 		// TODO: Add your methods for this class here.
 	public:
+		static DWORD REGISTRY_OPTION_VOLATILE = REG_OPTION_VOLATILE;
+
 		static cli::array<String^>^ HidGuardWhitelist();
 		static void DeleteSubKey(String^ key);
 		static void CreateSubKey(String^ key);
+		static void CreateSubKey(String^ key, unsigned long options);
 	};
 }

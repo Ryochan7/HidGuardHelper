@@ -54,6 +54,17 @@ void UtilLibrary::Class1::CreateSubKey(String ^ key)
 	HKEY hKey;
 	marshal_context context;
 	LPCWSTR temper = context.marshal_as<const TCHAR*>(key);
-	RegCreateKeyEx(HKEY_LOCAL_MACHINE, temper, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL);
+	DWORD regOption = REG_OPTION_NON_VOLATILE;
+	RegCreateKeyEx(HKEY_LOCAL_MACHINE, temper, 0, NULL, regOption, KEY_WRITE, NULL, &hKey, NULL);
+	RegCloseKey(hKey);
+}
+
+void UtilLibrary::Class1::CreateSubKey(String ^ key, unsigned long options)
+{
+	HKEY hKey;
+	marshal_context context;
+	LPCWSTR temper = context.marshal_as<const TCHAR*>(key);
+	DWORD regOption = options;
+	RegCreateKeyEx(HKEY_LOCAL_MACHINE, temper, 0, NULL, regOption, KEY_WRITE, NULL, &hKey, NULL);
 	RegCloseKey(hKey);
 }
