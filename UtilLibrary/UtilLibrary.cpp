@@ -13,7 +13,9 @@ cli::array<String^>^ UtilLibrary::Class1::HidGuardWhitelist()
 {
 	HKEY pHandle;
 	cli::array<String^>^ temp;
-	if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "SYSTEM\\CurrentControlSet\\Services\\HidGuardian\\Parameters\\Whitelist", 0, KEY_READ, &pHandle) == ERROR_SUCCESS)
+	marshal_context context;
+	LPCSTR tempStr = context.marshal_as<LPCSTR>(WHITELIST_PATH);
+	if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, tempStr, 0, KEY_READ, &pHandle) == ERROR_SUCCESS)
 	{
 		List<String^> tempList;
 		int ind = 0;

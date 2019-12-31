@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Threading;
 using UtilLibrary;
@@ -27,7 +28,18 @@ namespace HidGuardHelper
                 string[] wlEntries = Class1.HidGuardWhitelist();
                 foreach (string entry in wlEntries)
                 {
-                    Class1.DeleteSubKey(entry);
+                    int procID = 0;
+                    if (int.TryParse(entry, out procID))
+                    {
+                        try
+                        {
+                            Process.GetProcessById(procID);
+                        }
+                        catch (ArgumentException)
+                        {
+                            Class1.DeleteSubKey($"{Class1.WHITELIST_PATH}\\{procID}");
+                        }
+                    }
                 }
 
                 ProcessWatch watcher = null;
