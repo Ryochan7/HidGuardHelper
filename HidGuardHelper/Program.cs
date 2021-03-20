@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading;
 using UtilLibrary;
@@ -22,7 +22,7 @@ namespace HidGuardHelper
             {
                 foundId = int.TryParse(args[0], out processId);
             }
-            
+
             if (foundId)
             {
                 string[] wlEntries = Class1.HidGuardWhitelist();
@@ -56,7 +56,7 @@ namespace HidGuardHelper
                 temp.Priority = ThreadPriority.Lowest;
                 temp.Start();
                 temp.Join();
-                
+
                 if (watcher.ProcessExists)
                     watcher.lostProcess.WaitOne();
 

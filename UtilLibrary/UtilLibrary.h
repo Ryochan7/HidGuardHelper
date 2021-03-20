@@ -1,8 +1,10 @@
 #pragma once
+#include <wtypes.h>
 
 using namespace System;
 
-namespace UtilLibrary {
+namespace UtilLibrary
+{
 	public ref class Class1
 	{
 		// TODO: Add your methods for this class here.
@@ -16,3 +18,5 @@ namespace UtilLibrary {
 		static void CreateSubKey(String^ key, unsigned long options);
 	};
 }
+
+

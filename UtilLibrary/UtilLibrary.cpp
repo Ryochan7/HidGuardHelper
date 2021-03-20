@@ -1,7 +1,4 @@
-#include "stdafx.h"
-
 #include <msclr/marshal_cppstd.h>
-#include <Windows.h>
 #include "UtilLibrary.h"
 
 using namespace System;
@@ -44,14 +41,14 @@ cli::array<String^>^ UtilLibrary::Class1::HidGuardWhitelist()
 	return temp;
 }
 
-void UtilLibrary::Class1::DeleteSubKey(String ^ key)
+void UtilLibrary::Class1::DeleteSubKey(String^ key)
 {
 	marshal_context context;
 	LPCSTR temper = context.marshal_as<LPCSTR>(key);
 	RegDeleteKeyA(HKEY_LOCAL_MACHINE, temper);
 }
 
-void UtilLibrary::Class1::CreateSubKey(String ^ key)
+void UtilLibrary::Class1::CreateSubKey(String^ key)
 {
 	HKEY hKey;
 	marshal_context context;
@@ -61,7 +58,7 @@ void UtilLibrary::Class1::CreateSubKey(String ^ key)
 	RegCloseKey(hKey);
 }
 
-void UtilLibrary::Class1::CreateSubKey(String ^ key, unsigned long options)
+void UtilLibrary::Class1::CreateSubKey(String^ key, unsigned long options)
 {
 	HKEY hKey;
 	marshal_context context;
