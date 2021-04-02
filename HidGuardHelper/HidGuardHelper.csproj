@@ -12,7 +12,9 @@
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <AssemblyVersion>0.2.0</AssemblyVersion>
+    <Version>0.2.0</Version>
+    <FileVersion>0.2.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
