@@ -12,9 +12,9 @@
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
-    <AssemblyVersion>0.2.1</AssemblyVersion>
-    <Version>0.2.1</Version>
-    <FileVersion>0.2.1</FileVersion>
+    <AssemblyVersion>0.2.2</AssemblyVersion>
+    <Version>0.2.2</Version>
+    <FileVersion>0.2.2</FileVersion>
     <ApplicationIcon>realistic_elephant.ico</ApplicationIcon>
   </PropertyGroup>
 
